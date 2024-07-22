@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for input
+        System.out.println("");
+        System.out.println("Units to focus on: Feet, Meters, Pounds and Kg");
+
+        //Input the unit to convert from
+        System.out.print("Enter the unit you want to convert from: ");
+        String fromUnit = scanner.nextLine().toLowerCase();
+
+        //Input the unit to convert to
+        System.out.print("Enter the unit you want to convert to: ");
+        String toUnit = scanner.nextLine().toLowerCase();
+
+        //Input the quantity to be converted
+        System.out.print("Enter the quantity to be converted: ");
+        double quantity = scanner.nextDouble();
+
+        //Do the conversion
+        double result = convert(fromUnit, toUnit, quantity);
+
+        //Display output
+        System.out.println(quantity + " " + fromUnit + " = " + result + " " + toUnit);
+
+        scanner.close();
+    }
+
+    public static double convert(String fromUnit, String toUnit, double quantity) {
+        double result = 0;
+
+        //Conversion
+        switch (fromUnit) {
+            case "feet":
+                switch (toUnit) {
+                   
+                    case "meters":
+                        result = quantity / 3.28; // 1 feet = 0.3048m
+                        break;
+                   
+                }
+                break;
+            case "pounds":
+                switch (toUnit) {
+                    
+                    case "kgs":
+                        result = quantity * 0.454; // 1 pound = 0.454kgs
+                        break;
+                 
+                }
+                break;
+                
+            case "Fahrenheit":
+                switch (toUnit) {
+                    
+                    case "Celsius":
+                        result = ((quantity - 32) * (5 / 9)); // 32 fahrenheit = 0 degrees celsius
+                        break;
+                    
+                }
+                break;
+         
+        }
+
+        return result;
+    }
+}
